@@ -11,6 +11,8 @@ public class BasicSingletonBenchmark
 {
     private readonly MEDI.ServiceProvider _provider;
     private readonly ContainerSingleton _container = new();
+    private readonly ImprovedContainerSingleton _improvedContainer = new();
+    private readonly Improved2ContainerSingleton _improved2Container = new();
 
     public BasicSingletonBenchmark()
     {
@@ -32,13 +34,40 @@ public class BasicSingletonBenchmark
     {
         for (var i = 0; i < NumbersOfCalls; i++)
         {
-            
             if (NumbersOfClasses >= 1)
                 _container.GetService<ISingleton1>();
             if (NumbersOfClasses >= 2)
                 _container.GetService<ISingleton2>();
             if (NumbersOfClasses >= 3)
                 _container.GetService<ISingleton3>();
+        }
+    }
+
+    [Benchmark]
+    public void Improved_Jab()
+    {
+        for (var i = 0; i < NumbersOfCalls; i++)
+        {
+            if (NumbersOfClasses >= 1)
+                _improvedContainer.GetService<ISingleton1>();
+            if (NumbersOfClasses >= 2)
+                _improvedContainer.GetService<ISingleton2>();
+            if (NumbersOfClasses >= 3)
+                _improvedContainer.GetService<ISingleton3>();
+        }
+    }
+
+    [Benchmark]
+    public void Improved2_Jab()
+    {
+        for (var i = 0; i < NumbersOfCalls; i++)
+        {
+            if (NumbersOfClasses >= 1)
+                _improved2Container.GetService<ISingleton1>();
+            if (NumbersOfClasses >= 2)
+                _improved2Container.GetService<ISingleton2>();
+            if (NumbersOfClasses >= 3)
+                _improved2Container.GetService<ISingleton3>();
         }
     }
 

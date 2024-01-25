@@ -14,6 +14,20 @@ public partial class StartupBenchmark
         return provider.GetService<IServiceProvider>();
     }
 
+    [Benchmark, BenchmarkCategory("01", "Singleton", "Improved Jab")]
+    public IServiceProvider Improved_Jab_Singleton()
+    {
+        var provider = new ImprovedContainerSingleton();
+        return provider.GetService<IServiceProvider>();
+    }
+
+    [Benchmark, BenchmarkCategory("01", "Singleton", "Improved Jab 2")]
+    public IServiceProvider Improved_2_Jab_Singleton()
+    {
+        var provider = new Improved2ContainerSingleton();
+        return provider.GetService<IServiceProvider>();
+    }
+
     [Benchmark, BenchmarkCategory("01", "Singleton", "MEDI")]
     public IServiceProvider MEDI_Singleton() 
     { 

@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Jab.Performance": {
+      "commandName": "Project"
+    },
+    "Jab.Performance With FG": {
+      "commandName": "Project",
+      "commandLineArgs": "--profiler EP"
+    }
+  }
+}
