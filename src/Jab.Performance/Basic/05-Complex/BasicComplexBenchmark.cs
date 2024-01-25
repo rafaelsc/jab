@@ -684,7 +684,8 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
     Jab.Performance.Basic.Complex.IService1 IServiceProvider<Jab.Performance.Basic.Complex.IService1>.GetService()
     {
-        Jab.Performance.Basic.Complex.Service1 service = new Jab.Performance.Basic.Complex.Service1(this.GetService<Jab.Performance.Basic.Transient.ITransient1>());
+        ITransient1 transient1 = ((IServiceProvider<ITransient1>)this).GetService();
+        Jab.Performance.Basic.Complex.Service1 service = new Jab.Performance.Basic.Complex.Service1(transient1);
         TryAddDisposable(service);
         return service;
     }
@@ -698,7 +699,8 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
     Jab.Performance.Basic.Complex.IService2 IServiceProvider<Jab.Performance.Basic.Complex.IService2>.GetService()
     {
-        Jab.Performance.Basic.Complex.Service2 service = new Jab.Performance.Basic.Complex.Service2(this.GetService<Jab.Performance.Basic.Transient.ITransient2>());
+        ITransient2 transient2 = ((IServiceProvider<ITransient2>)this).GetService();
+        Jab.Performance.Basic.Complex.Service2 service = new Jab.Performance.Basic.Complex.Service2(transient2);
         TryAddDisposable(service);
         return service;
     }
@@ -712,7 +714,8 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
     Jab.Performance.Basic.Complex.IService3 IServiceProvider<Jab.Performance.Basic.Complex.IService3>.GetService()
     {
-        Jab.Performance.Basic.Complex.Service3 service = new Jab.Performance.Basic.Complex.Service3(this.GetService<Jab.Performance.Basic.Transient.ITransient3>());
+        ITransient3 transient3 = ((IServiceProvider<ITransient3>)this).GetService();
+        Jab.Performance.Basic.Complex.Service3 service = new Jab.Performance.Basic.Complex.Service3(transient3);
         TryAddDisposable(service);
         return service;
     }
@@ -724,7 +727,9 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
     Jab.Performance.Basic.Mixed.IMix1 IServiceProvider<Jab.Performance.Basic.Mixed.IMix1>.GetService()
     {
-        Jab.Performance.Basic.Mixed.Mix1 service = new Jab.Performance.Basic.Mixed.Mix1(this.GetService<Jab.Performance.Basic.Singleton.ISingleton1>(), this.GetService<Jab.Performance.Basic.Transient.ITransient1>());
+        ISingleton1 singleton1 = ((IServiceProvider<ISingleton1>)this).GetService();
+        ITransient1 transient1 = ((IServiceProvider<ITransient1>)this).GetService();
+        Jab.Performance.Basic.Mixed.Mix1 service = new Jab.Performance.Basic.Mixed.Mix1(singleton1, transient1);
         TryAddDisposable(service);
         return service;
     }
@@ -736,7 +741,9 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
     Jab.Performance.Basic.Mixed.IMix2 IServiceProvider<Jab.Performance.Basic.Mixed.IMix2>.GetService()
     {
-        Jab.Performance.Basic.Mixed.Mix2 service = new Jab.Performance.Basic.Mixed.Mix2(this.GetService<Jab.Performance.Basic.Singleton.ISingleton2>(), this.GetService<Jab.Performance.Basic.Transient.ITransient2>());
+        ISingleton2 singleton2 = ((IServiceProvider<ISingleton2>)this).GetService();
+        ITransient2 transient2 = ((IServiceProvider<ITransient2>)this).GetService();
+        Jab.Performance.Basic.Mixed.Mix2 service = new Jab.Performance.Basic.Mixed.Mix2(singleton2, transient2);
         TryAddDisposable(service);
         return service;
     }
@@ -748,7 +755,9 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
     Jab.Performance.Basic.Mixed.IMix3 IServiceProvider<Jab.Performance.Basic.Mixed.IMix3>.GetService()
     {
-        Jab.Performance.Basic.Mixed.Mix3 service = new Jab.Performance.Basic.Mixed.Mix3(this.GetService<Jab.Performance.Basic.Singleton.ISingleton3>(), this.GetService<Jab.Performance.Basic.Transient.ITransient3>());
+        ISingleton3 singleton3 = ((IServiceProvider<ISingleton3>)this).GetService();
+        ITransient3 transient3 = ((IServiceProvider<ITransient3>)this).GetService();
+        Jab.Performance.Basic.Mixed.Mix3 service = new Jab.Performance.Basic.Mixed.Mix3(singleton3, transient3);
         TryAddDisposable(service);
         return service;
     }
@@ -796,6 +805,8 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
     private void TryAddDisposable(object? value)
     {
+        return;
+
         if (value is not global::System.IDisposable and not System.IAsyncDisposable)
             return;
 
@@ -930,7 +941,8 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
         Jab.Performance.Basic.Complex.IService1 IServiceProvider<Jab.Performance.Basic.Complex.IService1>.GetService()
         {
-            Jab.Performance.Basic.Complex.Service1 service = new Jab.Performance.Basic.Complex.Service1(this.GetService<Jab.Performance.Basic.Transient.ITransient1>());
+            ITransient1 transient1 = ((IServiceProvider<ITransient1>)this).GetService();
+            Jab.Performance.Basic.Complex.Service1 service = new Jab.Performance.Basic.Complex.Service1(transient1);
             TryAddDisposable(service);
             return service;
         }
@@ -944,7 +956,8 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
         Jab.Performance.Basic.Complex.IService2 IServiceProvider<Jab.Performance.Basic.Complex.IService2>.GetService()
         {
-            Jab.Performance.Basic.Complex.Service2 service = new Jab.Performance.Basic.Complex.Service2(this.GetService<Jab.Performance.Basic.Transient.ITransient2>());
+            ITransient2 transient2 = ((IServiceProvider<ITransient2>)this).GetService();
+            Jab.Performance.Basic.Complex.Service2 service = new Jab.Performance.Basic.Complex.Service2(transient2);
             TryAddDisposable(service);
             return service;
         }
@@ -958,7 +971,8 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
         Jab.Performance.Basic.Complex.IService3 IServiceProvider<Jab.Performance.Basic.Complex.IService3>.GetService()
         {
-            Jab.Performance.Basic.Complex.Service3 service = new Jab.Performance.Basic.Complex.Service3(this.GetService<Jab.Performance.Basic.Transient.ITransient3>());
+            ITransient3 transient3 = ((IServiceProvider<ITransient3>)this).GetService();
+            Jab.Performance.Basic.Complex.Service3 service = new Jab.Performance.Basic.Complex.Service3(transient3);
             TryAddDisposable(service);
             return service;
         }
@@ -970,7 +984,9 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
         Jab.Performance.Basic.Mixed.IMix1 IServiceProvider<Jab.Performance.Basic.Mixed.IMix1>.GetService()
         {
-            Jab.Performance.Basic.Mixed.Mix1 service = new Jab.Performance.Basic.Mixed.Mix1(this.GetService<Jab.Performance.Basic.Singleton.ISingleton1>(), this.GetService<Jab.Performance.Basic.Transient.ITransient1>());
+            ISingleton1 singleton1 = ((IServiceProvider<ISingleton1>)this).GetService();
+            ITransient1 transient1 = ((IServiceProvider<ITransient1>)this).GetService();
+            Jab.Performance.Basic.Mixed.Mix1 service = new Jab.Performance.Basic.Mixed.Mix1(singleton1, transient1);
             TryAddDisposable(service);
             return service;
         }
@@ -982,7 +998,9 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
         Jab.Performance.Basic.Mixed.IMix2 IServiceProvider<Jab.Performance.Basic.Mixed.IMix2>.GetService()
         {
-            Jab.Performance.Basic.Mixed.Mix2 service = new Jab.Performance.Basic.Mixed.Mix2(this.GetService<Jab.Performance.Basic.Singleton.ISingleton2>(), this.GetService<Jab.Performance.Basic.Transient.ITransient2>());
+            ISingleton2 singleton2 = ((IServiceProvider<ISingleton2>)this).GetService();
+            ITransient2 transient2 = ((IServiceProvider<ITransient2>)this).GetService();
+            Jab.Performance.Basic.Mixed.Mix2 service = new Jab.Performance.Basic.Mixed.Mix2(singleton2, transient2);
             TryAddDisposable(service);
             return service;
         }
@@ -994,7 +1012,9 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
         Jab.Performance.Basic.Mixed.IMix3 IServiceProvider<Jab.Performance.Basic.Mixed.IMix3>.GetService()
         {
-            Jab.Performance.Basic.Mixed.Mix3 service = new Jab.Performance.Basic.Mixed.Mix3(this.GetService<Jab.Performance.Basic.Singleton.ISingleton3>(), this.GetService<Jab.Performance.Basic.Transient.ITransient3>());
+            ISingleton3 singleton3 = ((IServiceProvider<ISingleton3>)this).GetService();
+            ITransient3 transient3 = ((IServiceProvider<ITransient3>)this).GetService();
+            Jab.Performance.Basic.Mixed.Mix3 service = new Jab.Performance.Basic.Mixed.Mix3(singleton3, transient3);
             TryAddDisposable(service);
             return service;
         }
@@ -1020,14 +1040,23 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
             //    return c;
             //}
 
-            IService1 service1 = this.GetService<Jab.Performance.Basic.Complex.IService1>();
-            IService2 service2 = this.GetService<Jab.Performance.Basic.Complex.IService2>();
-            IService3 service3 = this.GetService<Jab.Performance.Basic.Complex.IService3>();
-            IMix1 mix1 = this.GetService<Jab.Performance.Basic.Mixed.IMix1>();
-            IMix2 mix2 = this.GetService<Jab.Performance.Basic.Mixed.IMix2>();
-            IMix3 mix3 = this.GetService<Jab.Performance.Basic.Mixed.IMix3>();
-            ISingleton1 singleton1 = this.GetService<Jab.Performance.Basic.Singleton.ISingleton1>();
-            ITransient1 transient1 = this.GetService<Jab.Performance.Basic.Transient.ITransient1>();
+            //IService1 service1 = this.GetService<Jab.Performance.Basic.Complex.IService1>();
+            //IService2 service2 = this.GetService<Jab.Performance.Basic.Complex.IService2>();
+            //IService3 service3 = this.GetService<Jab.Performance.Basic.Complex.IService3>();
+            //IMix1 mix1 = this.GetService<Jab.Performance.Basic.Mixed.IMix1>();
+            //IMix2 mix2 = this.GetService<Jab.Performance.Basic.Mixed.IMix2>();
+            //IMix3 mix3 = this.GetService<Jab.Performance.Basic.Mixed.IMix3>();
+            //ISingleton1 singleton1 = this.GetService<Jab.Performance.Basic.Singleton.ISingleton1>();
+            //ITransient1 transient1 = this.GetService<Jab.Performance.Basic.Transient.ITransient1>();
+
+            IService1 service1 = ((IServiceProvider<IService1>) this).GetService();
+            IService2 service2 = ((IServiceProvider<IService2>) this).GetService();
+            IService3 service3 = ((IServiceProvider<IService3>) this).GetService();
+            IMix1 mix1 = ((IServiceProvider<IMix1>)this).GetService();
+            IMix2 mix2 = ((IServiceProvider<IMix2>)this).GetService();
+            IMix3 mix3 = ((IServiceProvider<IMix3>)this).GetService();
+            ISingleton1 singleton1 = ((IServiceProvider<ISingleton1>)this).GetService();
+            ITransient1 transient1 = ((IServiceProvider<ITransient1>)this).GetService();
 
             return LazyInitializer.EnsureInitialized<Jab.Performance.Basic.Complex.Complex1>(ref this._IComplex1, Factory);
 
@@ -1043,14 +1072,23 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
         {
             //return LazyInitializer.EnsureInitialized<Jab.Performance.Basic.Complex.Complex2>(ref this._IComplex2, () => new Jab.Performance.Basic.Complex.Complex2(this.GetService<Jab.Performance.Basic.Complex.IService1>(), this.GetService<Jab.Performance.Basic.Complex.IService2>(), this.GetService<Jab.Performance.Basic.Complex.IService3>(), this.GetService<Jab.Performance.Basic.Mixed.IMix1>(), this.GetService<Jab.Performance.Basic.Mixed.IMix2>(), this.GetService<Jab.Performance.Basic.Mixed.IMix3>(), this.GetService<Jab.Performance.Basic.Singleton.ISingleton2>(), this.GetService<Jab.Performance.Basic.Transient.ITransient2>()));
 
-            IService1 service1 = this.GetService<Jab.Performance.Basic.Complex.IService1>();
-            IService2 service2 = this.GetService<Jab.Performance.Basic.Complex.IService2>();
-            IService3 service3 = this.GetService<Jab.Performance.Basic.Complex.IService3>();
-            IMix1 mix1 = this.GetService<Jab.Performance.Basic.Mixed.IMix1>();
-            IMix2 mix2 = this.GetService<Jab.Performance.Basic.Mixed.IMix2>();
-            IMix3 mix3 = this.GetService<Jab.Performance.Basic.Mixed.IMix3>();
-            ISingleton2 singleton2 = this.GetService<Jab.Performance.Basic.Singleton.ISingleton2>();
-            ITransient2 transient2 = this.GetService<Jab.Performance.Basic.Transient.ITransient2>();
+            //IService1 service1 = this.GetService<Jab.Performance.Basic.Complex.IService1>();
+            //IService2 service2 = this.GetService<Jab.Performance.Basic.Complex.IService2>();
+            //IService3 service3 = this.GetService<Jab.Performance.Basic.Complex.IService3>();
+            //IMix1 mix1 = this.GetService<Jab.Performance.Basic.Mixed.IMix1>();
+            //IMix2 mix2 = this.GetService<Jab.Performance.Basic.Mixed.IMix2>();
+            //IMix3 mix3 = this.GetService<Jab.Performance.Basic.Mixed.IMix3>();
+            //ISingleton2 singleton2 = this.GetService<Jab.Performance.Basic.Singleton.ISingleton2>();
+            //ITransient2 transient2 = this.GetService<Jab.Performance.Basic.Transient.ITransient2>();
+
+            IService1 service1 = ((IServiceProvider<IService1>)this).GetService();
+            IService2 service2 = ((IServiceProvider<IService2>)this).GetService();
+            IService3 service3 = ((IServiceProvider<IService3>)this).GetService();
+            IMix1 mix1 = ((IServiceProvider<IMix1>)this).GetService();
+            IMix2 mix2 = ((IServiceProvider<IMix2>)this).GetService();
+            IMix3 mix3 = ((IServiceProvider<IMix3>)this).GetService();
+            ISingleton2 singleton2 = ((IServiceProvider<ISingleton2>)this).GetService();
+            ITransient2 transient2 = ((IServiceProvider<ITransient2>)this).GetService();
 
             return LazyInitializer.EnsureInitialized<Jab.Performance.Basic.Complex.Complex2>(ref this._IComplex2, () => new Jab.Performance.Basic.Complex.Complex2(service1, service2, service3, mix1, mix2, mix3, singleton2, transient2));
         }
@@ -1059,14 +1097,23 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
         {
             //return LazyInitializer.EnsureInitialized<Jab.Performance.Basic.Complex.Complex3>(ref this._IComplex3, () => new Jab.Performance.Basic.Complex.Complex3(this.GetService<Jab.Performance.Basic.Complex.IService1>(), this.GetService<Jab.Performance.Basic.Complex.IService2>(), this.GetService<Jab.Performance.Basic.Complex.IService3>(), this.GetService<Jab.Performance.Basic.Mixed.IMix1>(), this.GetService<Jab.Performance.Basic.Mixed.IMix2>(), this.GetService<Jab.Performance.Basic.Mixed.IMix3>(), this.GetService<Jab.Performance.Basic.Singleton.ISingleton3>(), this.GetService<Jab.Performance.Basic.Transient.ITransient3>()));
 
-            IService1 service1 = this.GetService<Jab.Performance.Basic.Complex.IService1>();
-            IService2 service2 = this.GetService<Jab.Performance.Basic.Complex.IService2>();
-            IService3 service3 = this.GetService<Jab.Performance.Basic.Complex.IService3>();
-            IMix1 mix1 = this.GetService<Jab.Performance.Basic.Mixed.IMix1>();
-            IMix2 mix2 = this.GetService<Jab.Performance.Basic.Mixed.IMix2>();
-            IMix3 mix3 = this.GetService<Jab.Performance.Basic.Mixed.IMix3>();
-            ISingleton3 singleton3 = this.GetService<Jab.Performance.Basic.Singleton.ISingleton3>();
-            ITransient3 transient3 = this.GetService<Jab.Performance.Basic.Transient.ITransient3>();
+            //IService1 service1 = this.GetService<Jab.Performance.Basic.Complex.IService1>();
+            //IService2 service2 = this.GetService<Jab.Performance.Basic.Complex.IService2>();
+            //IService3 service3 = this.GetService<Jab.Performance.Basic.Complex.IService3>();
+            //IMix1 mix1 = this.GetService<Jab.Performance.Basic.Mixed.IMix1>();
+            //IMix2 mix2 = this.GetService<Jab.Performance.Basic.Mixed.IMix2>();
+            //IMix3 mix3 = this.GetService<Jab.Performance.Basic.Mixed.IMix3>();
+            //ISingleton3 singleton3 = this.GetService<Jab.Performance.Basic.Singleton.ISingleton3>();
+            //ITransient3 transient3 = this.GetService<Jab.Performance.Basic.Transient.ITransient3>();
+
+            IService1 service1 = ((IServiceProvider<IService1>)this).GetService();
+            IService2 service2 = ((IServiceProvider<IService2>)this).GetService();
+            IService3 service3 = ((IServiceProvider<IService3>)this).GetService();
+            IMix1 mix1 = ((IServiceProvider<IMix1>)this).GetService();
+            IMix2 mix2 = ((IServiceProvider<IMix2>)this).GetService();
+            IMix3 mix3 = ((IServiceProvider<IMix3>)this).GetService();
+            ISingleton3 singleton3 = ((IServiceProvider<ISingleton3>)this).GetService();
+            ITransient3 transient3 = ((IServiceProvider<ITransient3>)this).GetService();
 
             return LazyInitializer.EnsureInitialized<Jab.Performance.Basic.Complex.Complex3>(ref this._IComplex3, () => new Jab.Performance.Basic.Complex.Complex3(service1, service2, service3, mix1, mix2, mix3, singleton3, transient3));
         }
@@ -1110,6 +1157,7 @@ internal partial class ImprovedContainerComplex : global::System.IDisposable,
 
         private void TryAddDisposable(object? value)
         {
+            return;
             if (value is not global::System.IDisposable and not System.IAsyncDisposable)
                 return;
 
